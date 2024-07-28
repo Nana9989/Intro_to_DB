@@ -51,7 +51,7 @@ try:
         
         
         create_order_details_table = 
-        CREATE TABLE IF NOT EXISTS Order_details (
+        CREATE TABLE IF NOT EXISTS Order_Details (
             orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
             order_id INT,
             book_id INT,
@@ -60,11 +60,11 @@ try:
             FOREIGN KEY (book_id) REFERENCES Books(book_id)
         )
         
-        cursor.execute(create_authors_table)
-        cursor.execute(create_books_table)
-        cursor.execute(create_customers_table)
-        cursor.execute(create_orders_table)
-        cursor.execute(create_order_details_table)
+        mycursor.execute(create_authors_table)
+        mycursor.execute(create_books_table)
+        mycursor.execute(create_customers_table)
+        mycursor.execute(create_orders_table)
+        mycursor.execute(create_order_details_table)
 
         print("Tables created successfully!")
 
@@ -76,7 +76,7 @@ except mysql.connector.Error as errormsg:
     else:
         print(errormsg)
 finally:
-    if connection.is_connected():
-        cursor.close()
-        connection.close()
+    if mydb.is_connected():
+        mycursor.close()
+        mydb.close()
         print("MySQL connection ended.")
