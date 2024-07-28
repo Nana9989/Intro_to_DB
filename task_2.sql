@@ -14,6 +14,14 @@ try:
         print("Database connection successful.")
         mycursor = mydb.cursor()
 
+
+        create_authors_table = 
+        CREATE TABLE IF NOT EXISTS authors (
+            author_id INT AUTO_INCREMENT PRIMARY KEY,
+            author_name VARCHAR(215) NOT NULL
+        )
+        
+        
         create_books_table = 
         CREATE TABLE IF NOT EXISTS books (
             book_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -24,15 +32,6 @@ try:
             FOREIGN KEY (author_id) REFERENCES authors(author_id)
         )
         
-
-
-        create_authors_table = 
-        CREATE TABLE IF NOT EXISTS authors (
-            author_id INT AUTO_INCREMENT PRIMARY KEY,
-            author_name VARCHAR(215) NOT NULL
-        )
-        
-        
         create_customers_table = 
         CREATE TABLE IF NOT EXISTS customers (
             customer_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,7 +40,7 @@ try:
             address TEXT
         )
         
-
+        
         create_orders_table = 
         CREATE TABLE IF NOT EXISTS orders (
             order_id INT AUTO_INCREMENT PRIMARY KEY,
